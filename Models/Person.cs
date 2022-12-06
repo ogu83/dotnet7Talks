@@ -1,9 +1,15 @@
+using System.Runtime.Serialization;
 using dotnet7Talks.Attributes;
 
 namespace dotnet7Talks.Models;
 
+[DataContract(Name = nameof(Person))] // C# 11 feature Extended nameof scope
 public class Person
 {
+    public nint MyIntPtr; // C# 11 feature
+
+    public nuint MyUnsignedIntPtr; // C# 11 feature
+
     public required string Name { get; set; }
 
     public required string Surname { get; set; }
@@ -27,10 +33,10 @@ public class Person
 
     public string Biography => biography;
 
+    public string FullName { get { return $"{Name}{(string.IsNullOrEmpty(MiddleName) ? "" : " ")}{MiddleName} {Surname}"; } }
+
+
     [TypeAttribute(typeof(string))]
     [GenericAttribute<string>()] // C# 11 feature
-    public override string ToString()
-    {
-        return $"{Name}{(string.IsNullOrEmpty(MiddleName) ? "" : " ")}{MiddleName} {Surname}";
-    }
+    public override string ToString() => FullName;
 }

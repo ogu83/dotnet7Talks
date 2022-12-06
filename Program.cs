@@ -58,4 +58,12 @@ app.MapGet("/person/getmath", () =>
     return Results.Ok(retval);
 });
 
-app.Run();
+app.MapGet("/measurement/default", () =>
+{
+    var newObj = new Measurement();
+    var defObj = default(Measurement);
+    var retval = new Tuple<string, string>(newObj.ToString(), defObj.ToString());
+    return Results.Ok(retval);
+});
+
+app.Run("http://localhost:9999");
