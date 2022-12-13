@@ -5,7 +5,7 @@ file interface IPerson
 
 file class Person
 {
-    public string Work() => "Ethan Hunt";
+    public string Work() => "Tom Cruise";
 }
 
 public class HiddenPerson : IPerson

@@ -23,14 +23,14 @@ delegate int E();
 
 class TestX
 {
-    public static T F<T>(string s, T t) { return default(T); }
-    public static T G<T>() { return default(T); }
+    // public static T F<T>(string s, T t) { return default(T); }
+    // public static T G<T>() { return default(T); }
 
     static void Run()
     {
-        D d1 = F<int>;        // Ok, type argument given explicitly
-        D d2 = F;             // Ok, int inferred as type argument
-        E e1 = G<int>;        // Ok, type argument given explicitly
+        // D d1 = F<int>;        // Ok, type argument given explicitly
+        // D d2 = F;             // Ok, int inferred as type argument
+        // E e1 = G<int>;        // Ok, type argument given explicitly
         // E e2 = G;             // Error, cannot infer from return type
     }
 }
