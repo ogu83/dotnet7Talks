@@ -67,3 +67,4 @@ app.MapGet("/measurement/default", () =>
 });
 
 app.Run("http://localhost:9999");
+
